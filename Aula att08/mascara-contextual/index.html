@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Máscara de Telefone</title>
+</head>
+<body>
+  <h2>Campo com Máscara de Telefone</h2>
+  <input type="text" id="telefone" placeholder="(00) 00000-0000" oninput="mascararTelefone(this)" />
+
+  <script>
+    function mascararTelefone(campo) {
+      let valor = campo.value.replace(/\D/g, "");
+      valor = valor.replace(/^(\d{2})(\d)/g, "($1) $2");
+      valor = valor.replace(/(\d{5})(\d)/, "$1-$2");
+      campo.value = valor;
+    }
+  </script>
+</body>
+</html>
